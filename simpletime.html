@@ -1,0 +1,40 @@
+<script type="text/javascript">
+    RED.nodes.registerType('simpletime',{
+        category: 'function',
+        color: '#4ce600',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "time.png",
+        label: function() {
+            return this.name||"simpletime";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="simpletime">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="simpletime">
+<p>A node which can be inserted in any running flow, and adds the following messages to the flow.</p> 
+
+msg.myrawdate: "2017-11-08T20:36:26.257Z"  
+msg.myepoch: 1510173386257  
+msg.mydate: "Wed Nov 08 2017"  
+msg.myhours: "20"  
+msg.myminutes: "36"  
+msg.myseconds: "26"  
+msg.mytime: "20:36"  
+msg.mytimes: "20:36:26"  
+
+All other messages such as msg.payload & topic pass straight through the node unhindered.
+
+To introduce any of the messages into a flow, simply assign any, or any combination of the messages into a variable(s), such as; `var seconds = msg.myseconds;`  
+or to use in a ui_text node add via mustache `{{msg.mytimes}}`
+</script>
