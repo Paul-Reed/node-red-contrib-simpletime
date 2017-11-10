@@ -30,9 +30,10 @@ The additional payloads added to the flow, and their typical content format are;
 * msg.myrawdate: "2017-11-08T20:36:26.257Z"
 * msg.myepoch: 1510173386257
 * msg.mydate: "Wed Nov 08 2017"
-* msg.myhours: "20"
-* msg.myminutes: "36"
-* msg.myseconds: "26"
+* msg.myhour: "20"
+* msg.myminute: "36"
+* msg.myminutes: "36:26"
+* msg.mysecond: "26"
 * msg.mytime: "20:36"
 * msg.mytimes: "20:36:26"
 

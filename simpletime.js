@@ -13,14 +13,16 @@ module.exports = function(RED) {
         var s = a[5];
         var tm = (h+":"+m);
         var tms = (h+":"+m+":"+s);
+        var ms = (m+":"+s);
         msg.myrawdate = d;
         msg.myepoch = e;
-        msg.mydate = dt;
-        msg.myhours = h;
-        msg.myminutes = m;
-        msg.myseconds = s;
+        msg.mysecond = s;
+        msg.myminute = m;
+        msg.myminutes = ms;
+        msg.myhour = h;
         msg.mytime = tm;
         msg.mytimes = tms;
+        msg.mydate = dt;
 
         node.send(msg);
         });

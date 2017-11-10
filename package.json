@@ -10,18 +10,16 @@
     "type": "git",
     "url": "https://github.com/Paul-Reed/node-red-contrib-simpletime"
   },
-  "node-red": {
-    "version": ">=0.16.0",
-    "nodes": {
-     "simpletime": "simpletime.js"
-  },
-  "keywords": [ "node-red", "time", "date", "moment" ],
-  "author": "Paul Reed",
   "license": "Apache-2.0",
+  "keywords": [ "node-red", "time", "date", "moment" ],
+  "node-red"  : {
+    "nodes"   : {
+     "simpletime": "simpletime.js"
+    }
+  },
+  "author": "Paul Reed",
   "bugs": {
     "url": "https://github.com/Paul-Reed/node-red-contrib-simpletime/issues"
   },
   "homepage": "https://github.com/Paul-Reed/node-red-contrib-simpletime"
-  }
-
 }
