@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Paul-Reed/node-red-contrib-simpletime.git"
+    "url": "https://github.com/Paul-Reed/node-red-contrib-simpletime"
   },
   "node-red": {
     "version": ">=0.16.0",
