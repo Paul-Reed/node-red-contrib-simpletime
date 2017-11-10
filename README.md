@@ -28,13 +28,13 @@ In addition to any existing payloads, a number of additional payloads will be ad
 The additional payloads added to the flow, and their typical content format are;
 
 * msg.myrawdate: "2017-11-08T20:36:26.257Z"
-* <li>msg.myepoch: 1510173386257
-* <li>msg.mydate: "Wed Nov 08 2017"
-* <li>msg.myhours: "20"
-* <li>msg.myminutes: "36"
-* <li>msg.myseconds: "26"
-* <li>msg.mytime: "20:36"
-* <li>msg.mytimes: "20:36:26"
+* msg.myepoch: 1510173386257
+* msg.mydate: "Wed Nov 08 2017"
+* msg.myhours: "20"
+* msg.myminutes: "36"
+* msg.myseconds: "26"
+* msg.mytime: "20:36"
+* msg.mytimes: "20:36:26"
 
 To introduce any of the messages into a flow, simply assign any, or any combination of the messages into a variable, such as; <code>var seconds = msg.myseconds;</code> or to use in a ui_text node add via mustache <code>{{msg.mytimes}}</code>
 
