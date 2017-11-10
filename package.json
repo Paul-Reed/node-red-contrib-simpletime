@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-simpletime",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A lightweight node-red node to provide and format date and time.",
   "main": "none",
   "scripts": {
@@ -15,12 +15,7 @@
     "nodes": {
      "simpletime": "simpletime.js"
   },
-  "keywords": [
-    "time",
-    "date",
-    "moment",
-    "node-red"
-  ],
+  "keywords": [ "node-red", "time", "date", "moment" ],
   "author": "Paul Reed",
   "license": "Apache-2.0",
   "bugs": {
