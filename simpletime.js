@@ -3,17 +3,24 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         node.on('input', function(msg) {
-        var ts = msg.timestamp || Date.now();
-        var d = new Date(ts);
+        var d = new Date();
         dt = d.toDateString();
-        e= d.getTime();
-        var a = d.toJSON().split(/\D+/);
-        var h = a[3];
-        var m = a[4];
-        var s = a[5];
-        var tm = (h+":"+m);
-        var tms = (h+":"+m+":"+s);
-        var ms = (m+":"+s);
+        e = d.getTime();
+        h = (d.getHours());
+        m = (d.getMinutes());
+        if (m < 10) {
+           var min = '0' + m;
+           }
+           else (min = m);
+        s = (d.getSeconds());
+        if (s < 10) {
+           var sec = '0' + s;
+           }
+           else (sec = s);
+        var tm = (h+":"+min);
+        var tms = (h+":"+min+":"+sec);
+        var ms = (min+":"+sec);
+
         msg.myrawdate = d;
         msg.myepoch = e;
         msg.mysecond = s;
