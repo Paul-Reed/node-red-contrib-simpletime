@@ -27,16 +27,20 @@ In addition to any existing payloads, a number of additional payloads will be ad
 
 The additional payloads added to the flow, and their typical content format are;
 
-* msg.myrawdate: "2017-11-08T20:36:26.257Z"
-* msg.myepoch: 1510173386257
-* msg.mydate: "Wed Nov 08 2017"
-* msg.myhour: "20"
-* msg.myminute: "36"
-* msg.myminutes: "36:26"
-* msg.mysecond: "26"
-* msg.mytime: "20:36"
-* msg.mytimes: "20:36:26"
+* msg.myyear: 2018
+* msg.mymonth: "Sep"
+* msg.mydom: 11
+* msg.myday: "Tue"
+* msg.myhour: 19
+* msg.mytime: "19:51"
+* msg.mytimes: "19:51:17"
+* msg.myminute: 51
+* msg.myminutes: "51:17"
+* msg.mysecond: 17
+* msg.myepoch: 1536691877064
+* msg.myrawdate: "2018-09-11T18:51:17.064Z"
 
-To introduce any of the messages into a flow, simply assign any, or any combination of the messages into a variable, such as; <code>var seconds = msg.myseconds;</code> or to use in a ui_text node add via mustache <code>{{msg.mytimes}}</code>
+To introduce any of the messages into a flow, simply assign any, or any combination of the messages into a variable, such as; <code>var seconds = msg.myseconds;</code> or to use in a ui_text node add via mustache <code>{{mytimes}}</code>  
+More advanced date formats can also be constructed, such as <code>{{mytime}}hrs - {{mydom}}/{{mymonth}}</code> to get "20:10hrs - 11/Sep"
 
 For more advanced timezone handling, <code>node-red-contrib-moment</code> is recommended.
