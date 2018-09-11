@@ -3,11 +3,18 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         node.on('input', function(msg) {
-        var d = new Date();
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+var d = new Date();
         dt = d.toDateString();
         e = d.getTime();
         h = (d.getHours());
         m = (d.getMinutes());
+        mn = (monthNames[d.getMonth()]);
+        dy = (dayNames[d.getDay()]);
+        dt = d.getDate();
+        yr = d.getFullYear();
+        
         if (m < 10) {
            var min = '0' + m;
            }
@@ -21,15 +28,18 @@ module.exports = function(RED) {
         var tms = (h+":"+min+":"+sec);
         var ms = (min+":"+sec);
 
-        msg.myrawdate = d;
-        msg.myepoch = e;
-        msg.mysecond = s;
-        msg.myminute = m;
-        msg.myminutes = ms;
+        msg.myyear = yr;
+        msg.mymonth = mn;
+        msg.mydom = dt;
+        msg.myday = dy;
         msg.myhour = h;
         msg.mytime = tm;
         msg.mytimes = tms;
-        msg.mydate = dt;
+        msg.myminute = m;
+        msg.myminutes = ms;
+        msg.mysecond = s;
+        msg.myepoch = e;
+        msg.myrawdate = d;
 
         node.send(msg);
         });
