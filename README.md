@@ -27,6 +27,7 @@ In addition to any existing payloads, a number of additional payloads will be ad
 
 The additional payloads added to the flow, and their typical content format are;
 
+* msg.mydate: Tue Sep 11 2018
 * msg.myyear: 2018
 * msg.mymonth: "Sep"
 * msg.mydom: 11
