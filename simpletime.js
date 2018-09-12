@@ -6,7 +6,7 @@ module.exports = function(RED) {
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 var d = new Date();
-        dt = d.toDateString();
+        dts = d.toDateString();
         e = d.getTime();
         h = (d.getHours());
         m = (d.getMinutes());
@@ -27,7 +27,8 @@ var d = new Date();
         var tm = (h+":"+min);
         var tms = (h+":"+min+":"+sec);
         var ms = (min+":"+sec);
-
+        
+        msg.mydate = dts;
         msg.myyear = yr;
         msg.mymonth = mn;
         msg.mydom = dt;
