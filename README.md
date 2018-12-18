@@ -30,6 +30,7 @@ The additional payloads added to the flow, and their typical content format are;
 * msg.mydate: Tue Sep 11 2018
 * msg.myyear: 2018
 * msg.mymonth: "Sep"
+* msg.mymonthn: 09
 * msg.mydom: 11
 * msg.myday: "Tue"
 * msg.myhour: 19
