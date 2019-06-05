@@ -8,27 +8,20 @@ const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 var d = new Date();
         dts = d.toDateString();
         e = d.getTime();
-        h = (d.getHours());
-        m = (d.getMinutes());
+        mnu = pad(d.getMonth()+1, 2);
         mnt = (d.getMonth());
-        mnu = parseInt(("0" + (mnt + 1)).slice(-2));
         mn = (monthNames[mnt]);
         dy = (dayNames[d.getDay()]);
-        dt = d.getDate();
+        dt = pad(d.getDate(), 2);
         yr = d.getFullYear();
-        
-        if (m < 10) {
-           var min = '0' + m;
-           }
-           else (min = m);
-        s = (d.getSeconds());
-        if (s < 10) {
-           var sec = '0' + s;
-           }
-           else (sec = s);
-        var tm = (h+":"+min);
-        var tms = (h+":"+min+":"+sec);
-        var ms = (min+":"+sec);
+
+        h = pad(d.getHours(), 2);
+        m = pad(d.getMinutes(), 2);
+        s = pad(d.getSeconds(), 2);
+
+        var hm = (h+":"+m);
+        var hms = (h+":"+m+":"+s);
+        var ms = (m+":"+s);
         
         msg.mydate = dts;
         msg.myyear = yr;
@@ -37,8 +30,8 @@ var d = new Date();
         msg.mydom = dt;
         msg.myday = dy;
         msg.myhour = h;
-        msg.mytime = tm;
-        msg.mytimes = tms;
+        msg.mytime = hm;
+        msg.mytimes = hms;
         msg.myminute = m;
         msg.myminutes = ms;
         msg.mysecond = s;
@@ -48,5 +41,12 @@ var d = new Date();
         node.send(msg);
         });
     }
+ 
+    function pad(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+    }
+    
     RED.nodes.registerType("simpletime",SimpleTimeNode);
 }
