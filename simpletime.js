@@ -20,7 +20,13 @@ var d = new Date();
         h = pad(hr, 2);
         m = pad(mi, 2);
         s = pad(d.getSeconds(), 2);
+        
+        // Get hour in 12hr format
+        if (hr>12) {
+            thr=hr-12;
+        } else {thr=hr;}
 
+        // Calculate if AM or PM
         var amp = ((hr*60)+mi);
             if (amp<720) {
                 amp="AM";
@@ -36,6 +42,7 @@ var d = new Date();
         msg.mymonthn = mnu;
         msg.mydom = dt;
         msg.myday = dy;
+        msg.myhourpm = thr;
         msg.myhour = h;
         msg.mytime = hm;
         msg.mytimes = hms;
