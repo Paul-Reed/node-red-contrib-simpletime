@@ -14,11 +14,18 @@ var d = new Date();
         dy = (dayNames[d.getDay()]);
         dt = pad(d.getDate(), 2);
         yr = d.getFullYear();
-
-        h = pad(d.getHours(), 2);
-        m = pad(d.getMinutes(), 2);
+        hr = d.getHours();
+        mi = d.getMinutes();
+        
+        h = pad(hr, 2);
+        m = pad(mi, 2);
         s = pad(d.getSeconds(), 2);
 
+        var amp = ((hr*60)+mi);
+            if (amp<720) {
+                amp="AM";
+            } else {amp="PM";}
+        
         var hm = (h+":"+m);
         var hms = (h+":"+m+":"+s);
         var ms = (m+":"+s);
@@ -37,6 +44,7 @@ var d = new Date();
         msg.mysecond = s;
         msg.myepoch = e;
         msg.myrawdate = d;
+        msg.mypm = amp;
 
         node.send(msg);
         });
