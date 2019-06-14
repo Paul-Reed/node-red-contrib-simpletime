@@ -33,6 +33,7 @@ The additional payloads added to the flow, and their typical content format are;
 * msg.mymonthn: 09
 * msg.mydom: 11
 * msg.myday: "Tue"
+* msg.myhourpm: 7
 * msg.myhour: 19
 * msg.mytime: "19:51"
 * msg.mytimes: "19:51:17"
