@@ -5,6 +5,7 @@ module.exports = function(RED) {
         node.on('input', function(msg) {
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            
 var d = new Date();
         dts = d.toDateString();
         e = d.getTime();
@@ -20,11 +21,12 @@ var d = new Date();
         h = pad(hr, 2);
         m = pad(mi, 2);
         s = pad(d.getSeconds(), 2);
-          
-        // Get hour in 12hr format
+       
+        // Get hour in 12hr format 
         if (hr===0){thr=12;}
             else if (hr>12){thr=hr-12;}
                 else {thr=hr;}
+                thr='' + thr;
 
         // Calculate if AM or PM
         var amp = ((hr*60)+mi);
@@ -36,7 +38,7 @@ var d = new Date();
         var ms = (m+":"+s);
         
         msg.mydate = dts;
-        msg.myyear = yr;
+        msg.myyear = ''+yr;
         msg.mymonth = mn;
         msg.mymonthn = mnu;
         msg.mydom = dt;
@@ -48,10 +50,9 @@ var d = new Date();
         msg.myminute = m;
         msg.myminutes = ms;
         msg.mysecond = s;
-        msg.myepoch = e;
+        msg.myepoch = ''+e;
         msg.myrawdate = d;
         msg.mypm = amp;
-
         node.send(msg);
         });
     }
