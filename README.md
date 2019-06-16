@@ -27,20 +27,20 @@ In addition to any existing payloads, a number of additional payloads will be ad
 
 The additional payloads added to the flow, and their typical content format are;
 
-* msg.mydate: Tue Sep 11 2018
-* msg.myyear: 2018
+* msg.mydate: "Tue Sep 11 2018"
+* msg.myyear: "2018"
 * msg.mymonth: "Sep"
-* msg.mymonthn: 09
-* msg.mydom: 11
+* msg.mymonthn: "09"
+* msg.mydom: "11"
 * msg.myday: "Tue"
-* msg.myhourpm: 7
-* msg.myhour: 19
+* msg.myhourpm: "7"
+* msg.myhour: "19"
 * msg.mytime: "19:51"
 * msg.mytimes: "19:51:17"
-* msg.myminute: 51
+* msg.myminute: "51"
 * msg.myminutes: "51:17"
-* msg.mysecond: 17
-* msg.myepoch: 1536691877064
+* msg.mysecond: "17"
+* msg.myepoch: "1536691877064"
 * msg.myrawdate: "2018-09-11T18:51:17.064Z"
 * msg.mypm: "PM"
 
