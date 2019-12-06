@@ -5,7 +5,7 @@ module.exports = function(RED) {
         node.on('input', function(msg) {
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-            
+
 var d = new Date();
         dts = d.toDateString();
         e = d.getTime();
@@ -17,11 +17,12 @@ var d = new Date();
         yr = d.getFullYear();
         hr = d.getHours();
         mi = d.getMinutes();
-        
+
         h = pad(hr, 2);
         m = pad(mi, 2);
         s = pad(d.getSeconds(), 2);
-       
+        mil = pad(d.getMilliseconds(), 2);
+
         // Get hour in 12hr format 
         if (hr===0){thr=12;}
             else if (hr>12){thr=hr-12;}
@@ -32,11 +33,11 @@ var d = new Date();
         var amp = ((hr*60)+mi);
             if (amp<720){amp="AM";}
                 else {amp="PM";}
-        
+
         var hm = (h+":"+m);
         var hms = (h+":"+m+":"+s);
         var ms = (m+":"+s);
-        
+
         msg.mydate = dts;
         msg.myyear = ''+yr;
         msg.mymonth = mn;
@@ -50,18 +51,19 @@ var d = new Date();
         msg.myminute = m;
         msg.myminutes = ms;
         msg.mysecond = s;
+        msg.mymillis = mil;
         msg.myepoch = ''+e;
         msg.myrawdate = d;
         msg.mypm = amp;
         node.send(msg);
         });
     }
- 
+
     function pad(num, size) {
     var s = num+"";
     while (s.length < size) s = "0" + s;
     return s;
     }
-    
+
     RED.nodes.registerType("simpletime",SimpleTimeNode);
 }

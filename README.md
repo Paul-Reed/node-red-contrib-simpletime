@@ -40,6 +40,7 @@ The additional payloads added to the flow, and their typical content format are;
 * msg.myminute: "51"
 * msg.myminutes: "51:17"
 * msg.mysecond: "17"
+* msg.mymillis: "985"
 * msg.myepoch: "1536691877064"
 * msg.myrawdate: "2018-09-11T18:51:17.064Z"
 * msg.mypm: "PM"
