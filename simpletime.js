@@ -21,9 +21,9 @@ var d = new Date();
         h = pad(hr, 2);
         m = pad(mi, 2);
         s = pad(d.getSeconds(), 2);
-        mil = pad(d.getMilliseconds(), 2);
+        mil = pad(d.getMilliseconds(), 3);
 
-        // Get hour in 12hr format 
+        // Get hour in 12hr format
         if (hr===0){thr=12;}
             else if (hr>12){thr=hr-12;}
                 else {thr=hr;}
