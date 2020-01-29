@@ -1,5 +1,10 @@
 node-red-contrib-simpletime
 ====================
+[![NPM version][npm-version-image]][npm-url]
+[![NPM downloads per month][npm-downloads-month-image]][npm-url]
+[![NPM downloads total][npm-downloads-total-image]][npm-url]
+[![MIT License][license-image]][license-url]
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 A <a href="http://nodered.org" target="_new">Node-RED</a> node that is extremely lightweight and which can be inserted in any running flow, and adds time and date payloads with various formatting options, which can be retreived and used later in the flow.
 
@@ -49,3 +54,10 @@ To introduce any of the messages into a flow, simply assign any, or any combinat
 More advanced date formats can also be constructed, such as <code>{{mytime}}hrs - {{mydom}}/{{mymonth}}</code> to get "20:10hrs - 11/Sep", or <code>{{myhourpm}}:{{myminute}}{{mypm}}</code> to get "8.10PM"
 
 For more advanced timezone handling, <code>node-red-contrib-moment</code> is recommended.
+
+[license-image]: https://img.shields.io/badge/license-Apache%202-blue
+[license-url]: https://github.com/Paul-Reed/node-red-contrib-simpletime/blob/master/LICENSE
+[npm-url]: https://www.npmjs.com/package/node-red-contrib-simpletime
+[npm-version-image]: https://img.shields.io/npm/v/node-red-contrib-simpletime.svg
+[npm-downloads-month-image]: https://img.shields.io/npm/dm/node-red-contrib-simpletime.svg
+[npm-downloads-total-image]: https://img.shields.io/npm/dt/node-red-contrib-simpletime.svg
