@@ -56,7 +56,7 @@ More advanced date formats can also be constructed, such as <code>{{mytime}}hrs 
 For more advanced timezone handling, <code>node-red-contrib-moment</code> is recommended.
 
 [license-image]: https://img.shields.io/badge/license-Apache%202-blue
-[license-url]: https://github.com/Paul-Reed/node-red-contrib-simpletime/master/LICENSE
+[license-url]: https://github.com/Paul-Reed/node-red-contrib-simpletime/blob/master/LICENSE
 [npm-url]: https://www.npmjs.com/package/node-red-contrib-simpletime
 [npm-version-image]: https://img.shields.io/npm/v/node-red-contrib-simpletime.svg
 [npm-downloads-month-image]: https://img.shields.io/npm/dm/node-red-contrib-simpletime.svg
