@@ -17,7 +17,7 @@ var d = new Date();
         yr = d.getFullYear();
         hr = d.getHours();
         mi = d.getMinutes();
-
+	ny = Math.ceil((d - new Date(d.getFullYear(),0,1)) / 86400000);
         h = pad(hr, 2);
         m = pad(mi, 2);
         s = pad(d.getSeconds(), 2);
@@ -39,10 +39,11 @@ var d = new Date();
         var ms = (m+":"+s);
 
         msg.mydate = dts;
-        msg.myyear = ''+yr;
+	msg.myyear = ''+yr;
         msg.mymonth = mn;
         msg.mymonthn = mnu;
         msg.mydom = dt;
+	msg.mydoy = ''+ny;
         msg.myday = dy;
         msg.myhourpm = thr;
         msg.myhour = h;
