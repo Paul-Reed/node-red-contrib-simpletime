@@ -28,7 +28,7 @@ Any existing payloads or topics being injected into simpletime will pass unalter
 
 In addition to any existing payloads, a number of additional payloads will be added, which can be utilised later in the flow.
 
-By default, all the additional properties will be added to the message but this can be configured in the node confiuration using checkboxes.
+By default, all the additional properties will be added to the message but this can be altered in the node configuration, using checkboxes
 
 ### Details
 
