@@ -134,6 +134,7 @@
             <span class="property-type">as per input</span>
         </dt>
         <dd>In addition to any existing payloads, a number of additional payloads will be added, which can be utilised later in the flow. </dd>
+        <dd>By default, all the additional properties will be added to the message but this can be altered in the node configuration, using checkboxes.</dd>
     </dl>
     <h3>Details</h3>
     <p>The additional payloads added to the flow, and their typical content format are;</p>
@@ -161,4 +162,3 @@
 or to use in a ui_text node add via mustache <code>{{msg.mytimes}}</code></p>
 <p>More advanced date formats can also be constructed, such as <code>{{mytime}}hrs - {{mydom}}/{{mymonth}}</code> to get "20:10hrs - 11/Sep", or <code>{{myhourpm}}:{{myminute}}{{mypm}}</code> to get "8.10PM"</p>
 </script>
-
