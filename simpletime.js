@@ -2,12 +2,30 @@ module.exports = function(RED) {
     function SimpleTimeNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
+        this.mydate = config.mydate;
+        this.myyear = config.myyear;
+        this.mymonth = config.mymonth;
+        this.mymonthn = config.mymonthn;
+        this.mydom = config.mydom;
+        this.mydoy = config.mydoy;
+        this.myday = config.myday;
+        this.myhourpm = config.myhourpm;
+        this.myhour = config.myhour;
+        this.mytime = config.mytime;
+        this.mytimes = config.mytimes;
+        this.myminute = config.myminute;
+        this.myminutes = config.myminutes;
+        this.mysecond = config.mysecond;
+        this.mymillis = config.mymillis;
+        this.myepoch = config.myepoch;
+        this.myrawdate = config.myrawdate;
+        this.mypm = config.mypm;
         node.on('input', function(msg) {
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 var d = new Date();
-        dts = d.toDateString();
+        dts = d.toDateString() ;
         e = d.getTime();
         mnu = pad(d.getMonth()+1, 2);
         mnt = (d.getMonth());
@@ -17,7 +35,7 @@ var d = new Date();
         yr = d.getFullYear();
         hr = d.getHours();
         mi = d.getMinutes();
-	ny = Math.ceil((d - new Date(d.getFullYear(),0,1)) / 86400000);
+        ny = Math.ceil((d - new Date(d.getFullYear(),0,1)) / 86400000);
         h = pad(hr, 2);
         m = pad(mi, 2);
         s = pad(d.getSeconds(), 2);
@@ -37,25 +55,60 @@ var d = new Date();
         var hm = (h+":"+m);
         var hms = (h+":"+m+":"+s);
         var ms = (m+":"+s);
-
-        msg.mydate = dts;
-	msg.myyear = ''+yr;
-        msg.mymonth = mn;
-        msg.mymonthn = mnu;
-        msg.mydom = dt;
-	msg.mydoy = ''+ny;
-        msg.myday = dy;
-        msg.myhourpm = thr;
-        msg.myhour = h;
-        msg.mytime = hm;
-        msg.mytimes = hms;
-        msg.myminute = m;
-        msg.myminutes = ms;
-        msg.mysecond = s;
-        msg.mymillis = mil;
-        msg.myepoch = ''+e;
-        msg.myrawdate = d;
-        msg.mypm = amp;
+        if (this.mydate) {
+            msg.mydate = dts;
+        };
+        if (this.myyear) {
+            msg.myyear = ''+yr;
+        };
+        if (this.mymonth) {
+            msg.mymonth = mn;
+        };
+        if (this.mymonthn) {
+            msg.mymonthn = mnu;
+        };
+        if (this.mydom) {
+            msg.mydom = dt;
+        };
+        if (this.mydoy) {
+            msg.mydoy = ''+ny;
+        };
+        if (this.myday) {
+            msg.myday = dy;
+        };
+        if (this.myhourpm) {
+            msg.myhourpm = thr;
+        };
+        if (this.myhour) {
+            msg.myhour = h;
+        };
+        if (this.mytime) {
+            msg.mytime = hm;
+        };
+        if (this.mytimes) {
+            msg.mytimes = hms;
+        };
+        if (this.myminute) {
+            msg.myminute = m;
+        };
+        if (this.myminutes) {
+            msg.myminutes = ms;
+        };
+        if (this.mysecond) {
+            msg.mysecond = s;
+        };
+        if (this.mymillis) {
+            msg.mymillis = mil;
+        };
+        if (this.myepoch) {
+            msg.myepoch = ''+e;
+        };
+        if (this.myrawdate) {
+            msg.myrawdate = d;
+        };
+        if (this.mypm) {
+            msg.mypm = amp;
+        };
         node.send(msg);
         });
     }
@@ -68,3 +121,4 @@ var d = new Date();
 
     RED.nodes.registerType("simpletime",SimpleTimeNode);
 }
+
