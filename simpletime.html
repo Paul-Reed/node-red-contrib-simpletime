@@ -3,7 +3,25 @@
         category: 'function',
         color: '#87A980',
         defaults: {
-            name: {value:""}
+            name: {value:""},
+            mydate: {value:true},
+            myyear: {value:true},
+            mymonth: {value:true},
+            mymonthn: {value:true},
+            mydom: {value:true},
+            mydoy: {value:true},
+            myday: {value:true},
+            myhourpm: {value:true},
+            myhour: {value:true},
+            mytime: {value:true},
+            mytimes: {value:true},
+            myminute: {value:true},
+            myminutes: {value:true},
+            mysecond: {value:true},
+            mymillis: {value:true},
+            myepoch: {value:true},
+            myrawdate: {value:true},
+            mypm: {value:true}
         },
         inputs:1,
         outputs:1,
@@ -15,14 +33,95 @@
 </script>
 
 <script type="text/x-red" data-template-name="simpletime">
-    <div class="form-row">
+    <div class="form-row" style="min-width: 540px">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <label style="width:100%; display:inline"; <span>Include the following properties in the message:</span></label>
+    <br/>
+    <br/>
+    <div style="display: flex;">
+        <div style="flex-grow: 1;">
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mydate" style="width:15px;">
+                <label for="node-input-mydate" style="display:inline"> mydate e.g. "Tue Sep 11 2018"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mymonth" style="width:15px;">
+                <label for="node-input-mymonth" style="display:inline"> mymonth e.g. "Sep"</label>
+            </div>  
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mydom" style="width:15px;">
+                <label for="node-input-mydom" style="display:inline"> mydom e.g. "11"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myday" style="width:15px;">
+                <label for="node-input-myday" style="width:30%; display:inline"> myday e.g. "Tue"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myhour" style="width:15px;">
+                <label for="node-input-myhour" style="width:30%; display:inline"> myhour e.g. "19"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mytimes" style="width:15px;">
+                <label for="node-input-mytimes" style="width:30%; display:inline"> mytimes e.g. "19:51:17"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myminutes" style="width:15px;">
+                <label for="node-input-myminutes" style="width:30%; display:inline"> myminutes e.g. "51:17"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mymillis" style="width:15px;">
+                <label for="node-input-mymillis" style="width:30%; display:inline"> mymillis e.g. "985"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myrawdate" style="width:15px;">
+                <label for="node-input-myrawdate" style="width:30%; display:inline"> myrawdate e.g. "2018-09-11T18:51:17.064Z"</label>
+            </div>          
+        </div>
+        <div style="flex-grow: 1;">
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myyear" style="width:15px;">
+                <label for="node-input-myyear" style="display:inline"> myyear e.g. "2018"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mymonthn" style="width:15px;">
+                <label for="node-input-mymonthn" style="display:inline"> mymonthn e.g. "09"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mydoy" style="width:15px;">
+                <label for="node-input-mydoy" style="display:inline"> mydoy e.g. "86"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myhourpm" style="width:15px;">
+                <label for="node-input-myhourpm" style="width:30%; display:inline"> myhourpm e.g. "7"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mytime" style="width:15px;">
+                <label for="node-input-mytime" style="width:30%; display:inline"> mytime e.g. "19:51"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myminute" style="width:15px;">
+                <label for="node-input-myminute" style="width:30%; display:inline"> myminute e.g. "51"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mysecond" style="width:15px;">
+                <label for="node-input-mysecond" style="width:30%; display:inline"> mysecond e.g. "17"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myepoch" style="width:15px;">
+                <label for="node-input-myepoch" style="width:30%; display:inline"> myepoch e.g. "1536691877064"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mypm" style="width:15px;">
+                <label for="node-input-mypm" style="width:30%; display:inline"> mypm e.g. "PM"</label>
+            </div>          
+        </div>
     </div>
 </script>
 
 <script type="text/x-red" data-help-name="simpletime">
-<p>Simpletime node is an extremely lightweight node which can be inserted in any running flow, and adds time and date payloads with various formatting options, which can be retreived and used later in the flow.</p> 
+<p>Simpletime node is an extremely lightweight node which can be inserted in any running flow, and adds time and date payloads with various formatting options, which can be retreived and used later in the flow.</p>
 <p>For more advanced timezone handling, <code>node-red-contrib-moment</code> is recommended.</p>
 <h3>Inputs</h3>
     <dl class="message-properties">
@@ -35,6 +134,7 @@
             <span class="property-type">as per input</span>
         </dt>
         <dd>In addition to any existing payloads, a number of additional payloads will be added, which can be utilised later in the flow. </dd>
+        <dd>By default, all the additional properties will be added to the message but this can be altered in the node configuration, using checkboxes.</dd>
     </dl>
     <h3>Details</h3>
     <p>The additional payloads added to the flow, and their typical content format are;</p>
@@ -58,7 +158,7 @@
   <li>msg.myrawdate: "2018-09-11T18:51:17.064Z"</li>
   <li>msg.mypm: "PM"</li>
     </ul>
-<p>To introduce any of the messages into a flow, simply assign any, or any combination of the messages into a variable, such as; <code>var seconds = msg.myseconds;</code>  
+<p>To introduce any of the messages into a flow, simply assign any, or any combination of the messages into a variable, such as; <code>var seconds = msg.myseconds;</code>
 or to use in a ui_text node add via mustache <code>{{msg.mytimes}}</code></p>
 <p>More advanced date formats can also be constructed, such as <code>{{mytime}}hrs - {{mydom}}/{{mymonth}}</code> to get "20:10hrs - 11/Sep", or <code>{{myhourpm}}:{{myminute}}{{mypm}}</code> to get "8.10PM"</p>
 </script>
