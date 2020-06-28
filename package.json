@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-simpletime",
-  "version": "2.9.4",
+  "version": "2.9.3",
   "description": "A lightweight node-red node to provide and format date and time.",
   "main": "none",
   "scripts": {
