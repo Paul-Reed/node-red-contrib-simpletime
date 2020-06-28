@@ -28,6 +28,80 @@
         icon: "time.png",
         label: function() {
             return this.name||"simpletime";
+        },
+        oneditprepare: function() {
+            if (this.mydate === undefined) {
+                this.mydate = true;
+                $("#node-input-mydate").prop('checked', true);
+            }
+            if (this.myyear === undefined) {
+                this.myyear = true;
+                $("#node-input-myyear").prop('checked', true);
+            }
+            if (this.mymonth === undefined) {
+                this.mymonth = true;
+                $("#node-input-mymonth").prop('checked', true);
+            }
+            if (this.mymonthn === undefined) {
+                this.mymonthn = true;
+                $("#node-input-mymonthn").prop('checked', true);
+            }
+            if (this.mydom === undefined) {
+                this.mydom = true;
+                $("#node-input-mydom").prop('checked', true);
+            }
+            if (this.mydoy === undefined) {
+                this.mydoy = true;
+                $("#node-input-mydoy").prop('checked', true);
+            }
+            if (this.myday === undefined) {
+                this.myday = true;
+                $("#node-input-myday").prop('checked', true);
+            }
+            if (this.myhourpm === undefined) {
+                this.myhourpm = true;
+                $("#node-input-myhourpm").prop('checked', true);
+            }
+            if (this.myhour === undefined) {
+                this.myhour = true;
+                $("#node-input-myhour").prop('checked', true);
+            }
+            if (this.mytime === undefined) {
+                this.mytime = true;
+                $("#node-input-mytime").prop('checked', true);
+            }
+            if (this.mytimes === undefined) {
+                this.mytimes = true;
+                $("#node-input-mytimes").prop('checked', true);
+            }
+            if (this.myminute === undefined) {
+                this.myminute = true;
+                $("#node-input-myminute").prop('checked', true);
+            }
+            if (this.myminutes === undefined) {
+                this.myminutes = true;
+                $("#node-input-myminutes").prop('checked', true);
+            }
+            if (this.mysecond === undefined) {
+                this.mysecond = true;
+                $("#node-input-mysecond").prop('checked', true);
+            }
+            if (this.mymillis === undefined) {
+                this.mymillis = true;
+                $("#node-input-mymillis").prop('checked', true);
+            }
+            if (this.myepoch === undefined) {
+                this.myepoch = true;
+                $("#node-input-myepoch").prop('checked', true);
+            }
+            if (this.myrawdate === undefined) {
+                this.myrawdate = true;
+                $("#node-input-myrawdate").prop('checked', true);
+            }
+            if (this.mypm === undefined) {
+                this.mypm = true;
+                $("#node-input-mypm").prop('checked', true);
+            }
         }
     });
 </script>
