@@ -3,6 +3,7 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         this.mydate = config.mydate;
+        this.myymd = config.myymd;
         this.myyear = config.myyear;
         this.mymonth = config.mymonth;
         this.mymonthn = config.mymonthn;
@@ -57,6 +58,9 @@ var d = new Date();
         var ms = (m+":"+s);
         if (this.mydate) {
             msg.mydate = dts;
+        };
+        if (this.myymd) {
+            msg.myymd = '' + yr + '-' + mnu + '-' + dt;
         };
         if (this.myyear) {
             msg.myyear = ''+yr;
@@ -121,4 +125,3 @@ var d = new Date();
 
     RED.nodes.registerType("simpletime",SimpleTimeNode);
 }
-
