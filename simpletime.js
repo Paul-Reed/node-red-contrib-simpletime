@@ -3,7 +3,8 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         this.mydate = config.mydate;
-        this.myymd = config.myymd;
+        if (this.mydate === undefined) { this.mydate = true; }
+        this.myymd = (config.myymd === undefined) ? true : config.myymd;
         this.myyear = config.myyear;
         this.mymonth = config.mymonth;
         this.mymonthn = config.mymonthn;
