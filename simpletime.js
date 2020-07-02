@@ -2,6 +2,10 @@ module.exports = function(RED) {
     function SimpleTimeNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
+        node.warn("this");
+        node.warn(JSON.stringify(this));
+        node.warn("config");
+        node.warn(JSON.stringify(config));
         this.mydate = (config.mydate === undefined) ? true : config.mydate;
         this.myymd = (config.myymd === undefined) ? true : config.myymd;
         this.myyear = (config.myyear === undefined) ? true : config.myyear;
