@@ -5,6 +5,7 @@
         defaults: {
             name: {value:""},
             mydate: {value:true},
+            myymd: {value:true},
             myyear: {value:true},
             mymonth: {value:true},
             mymonthn: {value:true},
@@ -34,6 +35,10 @@
                 this.mydate = true;
                 $("#node-input-mydate").prop('checked', true);
             }
+            if (this.myymd === undefined) {
+                this.myymd = true;
+                $("#node-input-myymd").prop('checked', true);
+            }            
             if (this.myyear === undefined) {
                 this.myyear = true;
                 $("#node-input-myyear").prop('checked', true);
@@ -106,11 +111,97 @@
     });
 </script>
 
+<script type="text/javascript">
+    function selectAll() {
+        this.mydate = true;
+        $("#node-input-mydate").prop('checked', true);
+        this.myymd = true;
+        $("#node-input-myymd").prop('checked', true);
+        this.myyear = true;
+        $("#node-input-myyear").prop('checked', true);
+        this.mymonth = true;
+        $("#node-input-mymonth").prop('checked', true);
+        this.mymonthn = true;
+        $("#node-input-mymonthn").prop('checked', true);
+        this.mydom = true;
+        $("#node-input-mydom").prop('checked', true);
+        this.mydoy = true;
+        $("#node-input-mydoy").prop('checked', true);
+        this.myday = true;
+        $("#node-input-myday").prop('checked', true);
+        this.myhourpm = true;
+        $("#node-input-myhourpm").prop('checked', true);
+        this.myhour = true;
+        $("#node-input-myhour").prop('checked', true);
+        this.mytime = true;
+        $("#node-input-mytime").prop('checked', true);
+        this.mytimes = true;
+        $("#node-input-mytimes").prop('checked', true);
+        this.myminute = true;
+        $("#node-input-myminute").prop('checked', true);
+        this.myminutes = true;
+        $("#node-input-myminutes").prop('checked', true);
+        this.mysecond = true;
+        $("#node-input-mysecond").prop('checked', true);
+        this.mymillis = true;
+        $("#node-input-mymillis").prop('checked', true);
+        this.myepoch = true;
+        $("#node-input-myepoch").prop('checked', true);
+        this.myrawdate = true;
+        $("#node-input-myrawdate").prop('checked', true);
+        this.mypm = true;
+        $("#node-input-mypm").prop('checked', true);
+    };
+    function deselectAll() {
+        this.mydate = false;
+        $("#node-input-mydate").prop('checked', false);
+        this.myymd = false;
+        $("#node-input-myymd").prop('checked', false);
+        this.myyear = false;
+        $("#node-input-myyear").prop('checked', false);
+        this.mymonth = false;
+        $("#node-input-mymonth").prop('checked', false);
+        this.mymonthn = false;
+        $("#node-input-mymonthn").prop('checked', false);
+        this.mydom = false;
+        $("#node-input-mydom").prop('checked', false);
+        this.mydoy = false;
+        $("#node-input-mydoy").prop('checked', false);
+        this.myday = false;
+        $("#node-input-myday").prop('checked', false);
+        this.myhourpm = false;
+        $("#node-input-myhourpm").prop('checked', false);
+        this.myhour = false;
+        $("#node-input-myhour").prop('checked', false);
+        this.mytime = false;
+        $("#node-input-mytime").prop('checked', false);
+        this.mytimes = false;
+        $("#node-input-mytimes").prop('checked', false);
+        this.myminute = false;
+        $("#node-input-myminute").prop('checked', false);
+        this.myminutes = false;
+        $("#node-input-myminutes").prop('checked', false);
+        this.mysecond = false;
+        $("#node-input-mysecond").prop('checked', false);
+        this.mymillis = false;
+        $("#node-input-mymillis").prop('checked', false);
+        this.myepoch = false;
+        $("#node-input-myepoch").prop('checked', false);
+        this.myrawdate = false;
+        $("#node-input-myrawdate").prop('checked', false);
+        this.mypm = false;
+        $("#node-input-mypm").prop('checked', false);
+    };
+</script>
+
 <script type="text/x-red" data-template-name="simpletime">
     <div class="form-row" style="min-width: 540px">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+    <button onClick="selectAll()" type="button" class="red-ui-button">Select All</button>&nbsp&nbsp&nbsp&nbsp<button onClick="deselectAll()" type="button" class="red-ui-button">Clear All</button>
+    <br/>
+    <br/>
     <label style="width:100%; display:inline"; <span>Include the following properties in the message:</span></label>
     <br/>
     <br/>
@@ -120,40 +211,6 @@
                 <input type="checkbox" id="node-input-mydate" style="width:15px;">
                 <label for="node-input-mydate" style="display:inline"> mydate e.g. "Tue Sep 11 2018"</label>
             </div>
-            <div class="form-row">
-                <input type="checkbox" id="node-input-mymonth" style="width:15px;">
-                <label for="node-input-mymonth" style="display:inline"> mymonth e.g. "Sep"</label>
-            </div>  
-            <div class="form-row">
-                <input type="checkbox" id="node-input-mydom" style="width:15px;">
-                <label for="node-input-mydom" style="display:inline"> mydom e.g. "11"</label>
-            </div>
-            <div class="form-row">
-                <input type="checkbox" id="node-input-myday" style="width:15px;">
-                <label for="node-input-myday" style="width:30%; display:inline"> myday e.g. "Tue"</label>
-            </div>
-            <div class="form-row">
-                <input type="checkbox" id="node-input-myhour" style="width:15px;">
-                <label for="node-input-myhour" style="width:30%; display:inline"> myhour e.g. "19"</label>
-            </div>
-            <div class="form-row">
-                <input type="checkbox" id="node-input-mytimes" style="width:15px;">
-                <label for="node-input-mytimes" style="width:30%; display:inline"> mytimes e.g. "19:51:17"</label>
-            </div>
-            <div class="form-row">
-                <input type="checkbox" id="node-input-myminutes" style="width:15px;">
-                <label for="node-input-myminutes" style="width:30%; display:inline"> myminutes e.g. "51:17"</label>
-            </div>
-            <div class="form-row">
-                <input type="checkbox" id="node-input-mymillis" style="width:15px;">
-                <label for="node-input-mymillis" style="width:30%; display:inline"> mymillis e.g. "985"</label>
-            </div>
-            <div class="form-row">
-                <input type="checkbox" id="node-input-myrawdate" style="width:15px;">
-                <label for="node-input-myrawdate" style="width:30%; display:inline"> myrawdate e.g. "2018-09-11T18:51:17.064Z"</label>
-            </div>          
-        </div>
-        <div style="flex-grow: 1;">
             <div class="form-row">
                 <input type="checkbox" id="node-input-myyear" style="width:15px;">
                 <label for="node-input-myyear" style="display:inline"> myyear e.g. "2018"</label>
@@ -189,7 +246,45 @@
             <div class="form-row">
                 <input type="checkbox" id="node-input-mypm" style="width:15px;">
                 <label for="node-input-mypm" style="width:30%; display:inline"> mypm e.g. "PM"</label>
-            </div>          
+            </div>
+        </div>
+        <div style="flex-grow: 1;">
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myymd" style="width:15px;">
+                <label for="node-input-myymd" style="display:inline"> myymd e.g. "2018-09-11"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mymonth" style="width:15px;">
+                <label for="node-input-mymonth" style="display:inline"> mymonth e.g. "Sep"</label>
+            </div>  
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mydom" style="width:15px;">
+                <label for="node-input-mydom" style="display:inline"> mydom e.g. "11"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myday" style="width:15px;">
+                <label for="node-input-myday" style="width:30%; display:inline"> myday e.g. "Tue"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myhour" style="width:15px;">
+                <label for="node-input-myhour" style="width:30%; display:inline"> myhour e.g. "19"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mytimes" style="width:15px;">
+                <label for="node-input-mytimes" style="width:30%; display:inline"> mytimes e.g. "19:51:17"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myminutes" style="width:15px;">
+                <label for="node-input-myminutes" style="width:30%; display:inline"> myminutes e.g. "51:17"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-mymillis" style="width:15px;">
+                <label for="node-input-mymillis" style="width:30%; display:inline"> mymillis e.g. "985"</label>
+            </div>
+            <div class="form-row">
+                <input type="checkbox" id="node-input-myrawdate" style="width:15px;">
+                <label for="node-input-myrawdate" style="width:30%; display:inline"> myrawdate e.g. "2018-09-11T18:51:17.064Z"</label>
+            </div>
         </div>
     </div>
 </script>
@@ -214,6 +309,7 @@
     <p>The additional payloads added to the flow, and their typical content format are;</p>
     <ul>
   <li>msg.mydate: "Tue Sep 11 2018"</li>
+  <li>msg.myymd: "2018-09-11"</li>
   <li>msg.myyear: "2018"</li>
   <li>msg.mymonth: "Sep"</li>
   <li>msg.mymonthn: "09"</li>
