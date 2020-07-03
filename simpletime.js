@@ -2,9 +2,7 @@ module.exports = function(RED) {
     function SimpleTimeNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
-        node.warn("this");
-        node.warn(JSON.stringify(this));
-        node.warn("config");
+        node.warn("config object before checking for undefined");
         node.warn(JSON.stringify(config));
         this.mydate = (config.mydate === undefined) ? true : config.mydate;
         this.myymd = (config.myymd === undefined) ? true : config.myymd;
@@ -25,6 +23,8 @@ module.exports = function(RED) {
         this.myepoch = (config.myepoch === undefined) ? true : config.myepoch;
         this.myrawdate = (config.myrawdate === undefined) ? true : config.myrawdate;
         this.mypm = (config.mypm === undefined) ? true : config.mypm;
+        node.warn("this object after checking for undefined");
+        node.warn(JSON.stringify(this));
         
         node.on('input', function(msg) {
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
