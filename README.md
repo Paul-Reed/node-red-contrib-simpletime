@@ -35,6 +35,7 @@ By default, all the additional properties will be added to the message but this 
 The additional payloads added to the flow, and their typical content format are;
 
 * msg.mydate: "Tue Sep 11 2018"
+* msg.myymd: "2018-09-11"
 * msg.myyear: "2018"
 * msg.mymonth: "Sep"
 * msg.mymonthn: "09"
