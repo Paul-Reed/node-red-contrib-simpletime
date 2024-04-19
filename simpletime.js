@@ -9,9 +9,11 @@ module.exports = function(RED) {
         this.myyear = (config.myyear === undefined) ? true : config.myyear;
         this.mymonth = (config.mymonth === undefined) ? true : config.mymonth;
         this.mymonthn = (config.mymonthn === undefined) ? true : config.mymonthn;
+        this.mymonthf = (config.mymonthf === undefined) ? true : config.mymonthf;
         this.mydom = (config.mydom === undefined) ? true : config.mydom;
         this.mydoy = (config.mydoy === undefined) ? true : config.mydoy;
         this.myday = (config.myday === undefined) ? true : config.myday;
+        this.mydayf = (config.mydayf === undefined) ? true : config.mydayf;
         this.myhourpm = (config.myhourpm === undefined) ? true : config.myhourpm;
         this.myhour = (config.myhour === undefined) ? true : config.myhour;
         this.mytime = (config.mytime === undefined) ? true : config.mytime;
@@ -25,10 +27,12 @@ module.exports = function(RED) {
         this.mypm = (config.mypm === undefined) ? true : config.mypm;
         //node.warn("this object after checking for undefined");
         //node.warn(JSON.stringify(this));
-        
+
         node.on('input', function(msg) {
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const monthNamesFull =  ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const dayNamesFull = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
             var d = new Date();
             dts = d.toDateString() ;
@@ -36,7 +40,9 @@ module.exports = function(RED) {
             mnu = pad(d.getMonth()+1, 2);
             mnt = (d.getMonth());
             mn = (monthNames[mnt]);
+            mnf = (monthNamesFull[mnt]);
             dy = (dayNames[d.getDay()]);
+            dyf = (dayNamesFull[d.getDay()]);
             dt = pad(d.getDate(), 2);
             yr = d.getFullYear();
             hr = d.getHours();
@@ -73,6 +79,9 @@ module.exports = function(RED) {
             if (this.mymonth) {
                 msg.mymonth = mn;
             };
+            if (this.mymonthf) {
+                msg.mymonthf = mnf;
+            };
             if (this.mymonthn) {
                 msg.mymonthn = mnu;
             };
@@ -84,6 +93,9 @@ module.exports = function(RED) {
             };
             if (this.myday) {
                 msg.myday = dy;
+            };
+            if (this.mydayf) {
+                msg.mydayf = dyf;
             };
             if (this.myhourpm) {
                 msg.myhourpm = thr;
