@@ -34,7 +34,7 @@ module.exports = function(RED) {
             const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
             const dayNamesFull = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-            var d = new Date();
+            var d = msg.date == undefined ? new Date():new Date(msg.date);
             dts = d.toDateString() ;
             e = d.getTime();
             mnu = pad(d.getMonth()+1, 2);
