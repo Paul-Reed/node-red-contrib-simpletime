@@ -23,14 +23,14 @@ Usage
 
 ### Inputs
 
-Any existing payloads or topics being injected into simpletime will pass unaltered through the node except msg.data  
-If msg.data is present, it MUST contain a valid date that could be processed by the `new Date()` constructor such as;  
+Any existing payloads or topics being injected into simpletime will pass unaltered through the node except msg.date  
+If msg.date is present, it MUST contain a valid date that could be processed by the `new Date()` constructor such as;  
 `2024-04-16T12:02:05Z`  
 `Mon, 22 Apr 2024 19:55:05 GMT`  
 `2024-05-11`  
 `1715538484102` (as a number)
 
-If msg.data is not present, simpletime will calculate it's outputs based on the current date & time.
+If msg.date is not present, simpletime will calculate it's outputs based on the current date & time.
 
 ### Outputs
 
