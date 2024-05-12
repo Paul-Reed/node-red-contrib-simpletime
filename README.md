@@ -6,7 +6,8 @@ node-red-contrib-simpletime
 [![MIT License][license-image]][license-url]
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-A <a href="http://nodered.org" target="_new">Node-RED</a> node that is extremely lightweight and which can be inserted in any running flow, and adds time and date payloads with various formatting options, which can be retreived and used later in the flow.
+A <a href="http://nodered.org" target="_new">Node-RED</a> node that is extremely lightweight and which can be inserted in any running flow, and adds time and date payloads with various formatting options, which can be retreived and used later in the flow.  
+It can also accept an input of a date (see inputs below), and use that date to calculate simpletime's outputs.
 
 Install
 -------
@@ -22,12 +23,18 @@ Usage
 
 ### Inputs
 
-Any existing payloads or topics being injected into simpletime will pass unaltered through the node.
+Any existing payloads or topics being injected into simpletime will pass unaltered through the node except msg.data  
+If msg.data is present, it MUST contain a valid date that could be processed by the `new Date()` constructor such as;  
+`2024-04-16T12:02:05Z`  
+`Mon, 22 Apr 2024 19:55:05 GMT`  
+`2024-05-11`  
+`1715538484102` (as a number)
+
+If msg.data is not present, simpletime will calculate it's outputs based on the current date & time.
 
 ### Outputs
 
-In addition to any existing payloads, a number of additional payloads will be added, which can be utilised later in the flow.
-
+In addition to any existing payloads, a number of additional payloads will be added, which can be utilised later in the flow.  
 By default, all the additional properties will be added to the message but this can be altered in the node configuration, using checkboxes
 
 ### Details
