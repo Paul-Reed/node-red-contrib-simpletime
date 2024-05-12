@@ -321,7 +321,8 @@
 <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload</dt>
-        <dd>Any existing payloads or topics being injected into simpletime will pass unaltered through the node.</dd>
+        <dd>Any existing payloads or topics being injected into simpletime will pass unaltered through the node, except msg.date</dd>
+	<dd>If msg.date is present, the node expects it to contain a date in a format that can be parsed as a date object by new.Date(), such as 2024-04-16T12:02:05Z or a timestamp 1715538265198 (as a number)</dd>
     </dl>
         <h3>Outputs</h3>
     <dl class="message-properties">

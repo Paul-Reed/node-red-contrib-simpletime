@@ -25,8 +25,6 @@ module.exports = function(RED) {
         this.myepoch = (config.myepoch === undefined) ? true : config.myepoch;
         this.myrawdate = (config.myrawdate === undefined) ? true : config.myrawdate;
         this.mypm = (config.mypm === undefined) ? true : config.mypm;
-        //node.warn("this object after checking for undefined");
-        //node.warn(JSON.stringify(this));
 
         node.on('input', function(msg) {
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -34,7 +32,18 @@ module.exports = function(RED) {
             const dayNames =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
             const dayNamesFull = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-            var d = msg.date == undefined ? new Date():new Date(msg.date);
+	// Check if msg.date exists, otherwise use new Date()
+	    var d
+            const isDate = (val) => !isNaN(new Date(val).getTime())
+            if (msg.date == undefined) {
+                d = new Date()
+            } else if (isDate(msg.date)) {
+                d = new Date(msg.date)
+            } else {
+                this.warn('msg.date contains an unrecognized date format, please check simpletimes readme for input examples')
+                return
+            }
+
             dts = d.toDateString() ;
             e = d.getTime();
             mnu = pad(d.getMonth()+1, 2);
