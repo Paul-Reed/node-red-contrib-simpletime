@@ -25,6 +25,8 @@ module.exports = function(RED) {
         this.myepoch = (config.myepoch === undefined) ? true : config.myepoch;
         this.myrawdate = (config.myrawdate === undefined) ? true : config.myrawdate;
         this.mypm = (config.mypm === undefined) ? true : config.mypm;
+	this.mysqldt = (config.mysqldt === undefined) ? true : config.mysqldt;
+
 
         node.on('input', function(msg) {
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -138,6 +140,9 @@ module.exports = function(RED) {
             };
             if (this.mypm) {
                 msg.mypm = amp;
+            };
+            if (this.mysqldt) {
+                msg.mysqldt = '' + yr + '-' + mnu + '-' + dt + ' ' + hms;
             };
             node.send(msg);
         });
